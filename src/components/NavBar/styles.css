@@ -1,0 +1,19 @@
+.App{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: black;
+}
+.h3Nav{
+    color: white;
+    font-size: 15px;
+}
+.a-appJs{
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    margin-top: 15px;
+}
+.a-appJs:hover{
+    color: lightcoral;
+}

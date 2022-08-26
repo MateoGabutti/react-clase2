@@ -1,24 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./app.css"
+//import CardWidget from "./CartWidget";
+import NavBar from "./components/NavBar"
+import ItemListContainer from "./containers/ItemListContainer";
+import Ad from "./Ad";
 function App() {
+  const jugadores = ["messi", "pele"]
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <NavBar players = {jugadores}/>
+    <ItemListContainer greeting={"Bienvenidos a Fika"}/>
+    <Ad>
+      <h3>Fika es un emprendimiento de ropa</h3>
+    </Ad>
+    </>
   );
 }
 

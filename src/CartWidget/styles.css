@@ -1,0 +1,6 @@
+.logoCarrito{
+    display: flex;
+    justify-content: flex-end;
+    background-color: aquamarine;
+    font-size: 25px;
+}
