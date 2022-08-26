@@ -2,7 +2,7 @@ import "./app.css"
 //import CardWidget from "./CartWidget";
 import NavBar from "./components/NavBar"
 import ItemListContainer from "./containers/ItemListContainer";
-import Ad from "./Ad";
+import Ad from "./components/NavBar/Ad";
 function App() {
   const jugadores = ["messi", "pele"]
   return (
