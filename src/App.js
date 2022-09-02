@@ -3,6 +3,8 @@ import "./app.css"
 import NavBar from "./components/NavBar"
 import ItemListContainer from "./containers/ItemListContainer";
 import Ad from "./components/NavBar/Ad";
+
+
 function App() {
   const jugadores = ["messi", "pele"]
   return (
@@ -12,6 +14,7 @@ function App() {
     <Ad>
       <h3>Fika es un emprendimiento de ropa</h3>
     </Ad>
+    
     </>
   );
 }
