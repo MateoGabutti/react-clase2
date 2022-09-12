@@ -1,42 +1,47 @@
 import React from 'react'
 import { useState } from 'react'
 import { useEffect } from 'react'
-import ItemCount from '../../components/NavBar/ItemCount'
+
 import ItemList from '../../components/NavBar/ItemList'
-import {products} from "../../data/products"
+//import {products} from "../../data/products"
 import "./styles.css"
+import { useParams } from 'react-router-dom'
 
 const ItemListContainer = ({greeting}) => {
   
-  const [productos, setProductos] = useState([])
+  const [productos, setProductos] = useState([]);
+  const {categoryId} = useParams();
+  console.log(categoryId)
 
   useEffect(()=>{
   (async ()=> {
-    const obtenerProductos = new Promise ((accept, reject)=> {
-        setTimeout(()=> {
-          accept(products)
-        }, 3000);
-      })
         try {
-          const productos = await obtenerProductos;
-          setProductos(productos);
+          if(categoryId){
+            const respuesta = await fetch("https://fakestoreapi.com/products/category/" + categoryId);
+            const productos = await respuesta.json();
+                setProductos(productos);
+          }else{
+            const respuesta = await fetch("https://fakestoreapi.com/products");
+            const productos = await respuesta.json()
+            setProductos(productos);
+          }
+          
         } catch (error) {
           console.log(error);
         }
 
       })()
 
-  }, [])
+  }, [categoryId])
   console.log(productos)
 
 
-  const agregarAlCarrito = (cantidad)=>{
+  //const agregarAlCarrito = (cantidad)=>{
     
-  }
+  //}
   return (
     <div className='titulo'>
       <h1>{greeting}</h1>
-      <ItemCount initial={1} stock={6} onAdd={agregarAlCarrito}/> 
       <ItemList products = {productos}/>
     </div>
   )

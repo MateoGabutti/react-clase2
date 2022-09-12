@@ -1,8 +1,19 @@
 import React from 'react'
-
+import "./styles.css"
+import {useNavigate} from "react-router-dom"
 const Item = ({product}) => {
+  const navigate = useNavigate()
+  const handleNavigate = (()=>{
+    navigate(`/detail/${product.id}`)
+  })
   return (
-    <h1>{product.name}</h1>
+    <>
+    <div onClick={handleNavigate}>
+      <img className='images' src={product.image} alt="" />
+      <h1 className='images'>{product.title}</h1>
+    </div>
+    </>
+    
   )
 }
 

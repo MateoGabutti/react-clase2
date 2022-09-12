@@ -1,21 +1,26 @@
-import "./app.css"
+import "./App.css"
 //import CardWidget from "./CartWidget";
 import NavBar from "./components/NavBar"
 import ItemListContainer from "./containers/ItemListContainer";
-import Ad from "./components/NavBar/Ad";
-
+import ItemDetailContainer from "./containers/ItemListContainer/ItemDetailContainer";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+import NotFound from "./components/NavBar/NotFound";
 
 function App() {
-  const jugadores = ["messi", "pele"]
   return (
-    <>
-    <NavBar players = {jugadores}/>
-    <ItemListContainer greeting={"Bienvenidos a Fika"}/>
-    <Ad>
-      <h3>Fika es un emprendimiento de ropa</h3>
-    </Ad>
-    
-    </>
+    <BrowserRouter>
+      <NavBar />      
+      <Routes>
+        <Route path="/" element={<ItemListContainer/>}/>
+        <Route path="/category/:categoryId" element={<ItemListContainer/>}/>
+        <Route path="/detail/:productId" element={<ItemDetailContainer/>}/>
+        <Route path="*" element={<NotFound/>}/>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
