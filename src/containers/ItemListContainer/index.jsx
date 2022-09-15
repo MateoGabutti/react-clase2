@@ -33,7 +33,6 @@ const ItemListContainer = ({greeting}) => {
       })()
 
   }, [categoryId])
-  console.log(productos)
 
 
   //const agregarAlCarrito = (cantidad)=>{

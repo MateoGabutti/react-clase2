@@ -1,4 +1,4 @@
-import React,{ useState,  } from 'react'
+import React,{ useState, useEffect } from 'react'
 import "./styles.css"
 const ItemCount = ({stock, initial, onAdd}) => {
   const [count, setCount] = useState(initial)
@@ -14,15 +14,27 @@ const ItemCount = ({stock, initial, onAdd}) => {
       setCount (count - 1)
     }
   }
+  const addCart = ()=>{
+    onAdd(count);
+    setCount(initial);
+  }
+
+  useEffect(()=> {
+    
+    console.log("Se montó el ItemCount");
+}, []);
 
 
+useEffect(()=> {
+    console.log("Se actualiza el estado!")
+}, [count]);
   
     return (
     <div>
         <h1>{count}</h1>
         <button onClick={handleDecrement}>restar</button>
         <button onClick={handleAdd}>Sumar</button>
-        <button onClick={()=>onAdd(count)}>Agregar al carrito</button>
+        <button onClick={ () => addCart }>Agregar al carrito</button>
     </div>
   )
 }
