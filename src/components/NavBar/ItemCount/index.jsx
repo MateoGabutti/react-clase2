@@ -34,7 +34,7 @@ useEffect(()=> {
         <h1>{count}</h1>
         <button onClick={handleDecrement}>restar</button>
         <button onClick={handleAdd}>Sumar</button>
-        <button onClick={ () => addCart }>Agregar al carrito</button>
+        <button onClick={addCart}>Agregar al carrito</button>
     </div>
   )
 }
