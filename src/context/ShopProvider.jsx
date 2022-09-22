@@ -31,16 +31,27 @@ const ShopProvider = ({children}) => {
     const isInCart = (id)=>{
       return cart.some(product => product.id === id)
     }
-    /*const removeItem = (item) => {
-
+    const clearCart = () => {
+        const cartModificado = []
+        setCart(cartModificado)     
+      
+    }
+    const removeItem = (item) => {
+      const coincidencia = isInCart(item.id)
+        if(coincidencia){
+            const itemAEliminar = cart.find(product => product.id === item.id)
+            const index = cart.indexOf(itemAEliminar)
+            cart.splice(index,1)
+            console.log(cart)        
+        }
+        else{
+            console.log('Lo siento. No se ha encontrado el item en el carrito')
+        }
     }
 
-    const clearCart = () => {
-
-    }*/
 
   return (
-    <Shop.Provider value={{cart, addItem}}>
+    <Shop.Provider value={{cart, addItem,clearCart, removeItem}}>
         {children}
     </Shop.Provider>
   )
