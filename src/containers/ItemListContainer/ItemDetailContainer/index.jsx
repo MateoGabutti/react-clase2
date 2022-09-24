@@ -3,6 +3,8 @@ import { useEffect} from 'react'
 import { useState } from 'react'
 import ItemDetail from '../../../components/NavBar/ItemDetail'
 import{useParams}from "react-router-dom"
+import { doc, getDoc } from "firebase/firestore";
+import {db} from "../../../firebase/config"
 const ItemDetailContainer = () => {
     const [productDetail, setProductDetail] = useState ({})
 
@@ -14,9 +16,17 @@ const ItemDetailContainer = () => {
 
         const obtenerProductos = async ()=>{
             try {
-                const respuesta = await fetch(`https://fakestoreapi.com/products/${productId}`)
-                const producto = await respuesta.json()
-                setProductDetail(producto)
+
+                const docRef = doc(db, "products", productId);
+                const docSnap = await getDoc(docRef);
+
+                if (docSnap.exists()) {
+                console.log("Document data:", docSnap.data());
+                setProductDetail({id: docSnap.id, ...docSnap.data()})
+                } else {
+                // doc.data() will be undefined in this case
+                console.log("No such document!");
+                }
             } catch (error) {
                 console.log(error)
             }
@@ -28,4 +38,4 @@ const ItemDetailContainer = () => {
     return <ItemDetail product={productDetail}/>;
 }
 
-export default ItemDetailContainer
+export default ItemDetailContainer;

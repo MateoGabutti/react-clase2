@@ -32,22 +32,12 @@ const ShopProvider = ({children}) => {
       return cart.some(product => product.id === id)
     }
     const clearCart = () => {
-        const cartModificado = []
-        setCart(cartModificado)     
+        setCart([])    
       
     }
-    const removeItem = (item) => {
-      const coincidencia = isInCart(item.id)
-        if(coincidencia){
-            const itemAEliminar = cart.find(product => product.id === item.id)
-            const index = cart.indexOf(itemAEliminar)
-            cart.splice(index,1)
-            console.log(cart)        
-        }
-        else{
-            console.log('Lo siento. No se ha encontrado el item en el carrito')
-        }
-    }
+    const removeItem = (itemRemove) => {
+      const productosFilter = cart.filter(item => item !== itemRemove)
+      setCart(productosFilter)
 
 
   return (
@@ -56,7 +46,7 @@ const ShopProvider = ({children}) => {
     </Shop.Provider>
   )
 }
-
+}
 export default ShopProvider
 
 
