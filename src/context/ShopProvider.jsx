@@ -40,12 +40,13 @@ const ShopProvider = ({children}) => {
       setCart(productosFilter)
 
 
-  return (
-    <Shop.Provider value={{cart, addItem,clearCart, removeItem}}>
-        {children}
-    </Shop.Provider>
-  )
+  
 }
+return (
+  <Shop.Provider value={{cart, addItem,clearCart, removeItem}}>
+      {children}
+  </Shop.Provider>
+)
 }
 export default ShopProvider
 
