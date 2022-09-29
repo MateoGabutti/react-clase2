@@ -9,7 +9,7 @@ import {Shop} from "../../../context/ShopProvider"
 const ItemDetail = ({product}) => {
   const [cant, setCant] = useState(0)
   const navigate = useNavigate()
-  const {addItem,clearCart,removeItem}= useContext(Shop)
+  const {addItem/*,clearCart,removeItem*/}= useContext(Shop)
   const addCart = (cantidad)=>{
     setCant(cantidad)
   }
@@ -18,12 +18,12 @@ const ItemDetail = ({product}) => {
     addItem(producto)
     navigate("/cart")
   }
-  const limpiarCarrito = () => {
+/*  const limpiarCarrito = () => {
     clearCart()
 }
   const eliminarItem = () =>{
       removeItem(product)
-}
+}*/
   console.log(cant)
   return (
     <div>
@@ -31,8 +31,6 @@ const ItemDetail = ({product}) => {
         <div className="detail-img">
           <h1>{product.title}</h1>
           {cant ? (<button onClick={handleFinish}>Finalizar Compra</button>) : (<ItemCount stock={10} initial={1} onAdd={addCart}/>)  }
-          <button onClick={limpiarCarrito}>Limpiar Carrito</button>
-          <button onClick={eliminarItem}>eliminar Item</button>
         </div>
     </div>
   )
