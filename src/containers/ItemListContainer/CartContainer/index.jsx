@@ -41,7 +41,6 @@ const Cart = () => {
       setLoading(true)
       const importeTotal = total();
       const orden = ordenGenerada("Mateo", "mateogabutti12@gmail.com", 12345678, cart, importeTotal);
-      console.log(orden);
 
       // Add a new document with a generated id.
       const docRef = await addDoc(collection(db, "orders"), orden);

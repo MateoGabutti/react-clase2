@@ -9,7 +9,6 @@ const ItemDetailContainer = () => {
     const [productDetail, setProductDetail] = useState ({})
 
     const {productId} = useParams()
-    console.log(productId)
 
 
     useEffect(()=>{
@@ -25,16 +24,13 @@ const ItemDetailContainer = () => {
                 setProductDetail({id: docSnap.id, ...docSnap.data()})
                 } else {
                 // doc.data() will be undefined in this case
-                console.log("No such document!");
                 }
             } catch (error) {
-                console.log(error)
             }
             
         }
         obtenerProductos()
     }, [productId])
-    console.log(productDetail)
     return <ItemDetail product={productDetail}/>;
 }
 

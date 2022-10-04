@@ -2,7 +2,6 @@ import { addDoc, collection, doc, getDoc, writeBatch } from "firebase/firestore"
 import { db } from "../firebase/config"
 
 const guardarOrden = (cart, orden) => {
-    console.log("Guardar orden");
     const batch = writeBatch(db)
     
     //Array auxiliar que me define si hay productos fuera de stock
@@ -18,8 +17,6 @@ const guardarOrden = (cart, orden) => {
             } else {
                 outOfStock.push(producto)
             }
-            console.log("Productos fuera de stock:");
-            console.log(outOfStock);
     
             if (outOfStock.length === 0) {
                 addDoc(collection(db, 'orders'), orden).then(({ id }) => {

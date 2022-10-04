@@ -12,7 +12,6 @@ const ShopProvider = ({children}) => {
     const addItem = (item)=>{
 
       const Repe= isInCart(item.id)
-      console.log(Repe)
       if(Repe){
         const cartModified = cart.map(product =>{
           if(product.id === item.id){
