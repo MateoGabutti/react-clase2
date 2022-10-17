@@ -1,13 +1,13 @@
 import React from 'react'
 import { useContext, useState } from 'react'
-import { Shop } from '../../../context/ShopProvider'
-import ordenGenerada from '../../../services/generarOrden';
+import { Shop } from '../../context/ShopProvider'
+import ordenGenerada from '../../services/generarOrden';
 import { DataGrid } from '@mui/x-data-grid';
 import { Button } from '@mui/material';
 import { collection, addDoc } from "firebase/firestore";
 import { doc, updateDoc, getDoc } from "firebase/firestore";
-import { db } from "../../../firebase/config";
-import Form from '../../../components/NavBar/Form';
+import { db } from "../../firebase/config";
+import Form from '../../components/Form';
 import "./styles.css" 
 
 

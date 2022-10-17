@@ -1,10 +1,11 @@
 import React from 'react'
 import { useState } from 'react';
-import ItemCount from '../ItemCount';
 import {useNavigate} from "react-router-dom"
 import "./styles.css"
 import { useContext } from 'react';
-import {Shop} from "../../../context/ShopProvider"
+import {Shop} from "../../context/ShopProvider"
+import ItemCount from '../ItemCount/index'
+
 
 const ItemDetail = ({product}) => {
   const [cant, setCant] = useState(0)

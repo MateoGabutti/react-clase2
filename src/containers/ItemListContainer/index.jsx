@@ -1,5 +1,5 @@
 import React from "react";
-import ItemList from "../../components/NavBar/ItemList";
+import ItemList from "../../components/ItemList";
 import { useParams } from "react-router-dom";
 import useFirebase from "../../hooks/useFirebase";
 

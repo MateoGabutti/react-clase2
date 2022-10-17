@@ -1,8 +1,8 @@
 import React from "react";
-import NotFound from '../components/NavBar/NotFound';
-import Cart from '../containers/ItemListContainer/CartContainer';
+import NotFound from '../components/NotFound';
+import Cart from '../containers/CartContainer';
 import NavBar from '../components/NavBar';
-import ItemDetailContainer from '../containers/ItemListContainer/ItemDetailContainer';
+import ItemDetailContainer from '../containers/ItemDetailContainer';
 import ItemListContainer from '../containers/ItemListContainer';
 import {
   BrowserRouter,
